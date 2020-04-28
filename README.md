@@ -24,7 +24,7 @@ The VM uses the Ubuntu 18.04 image as that's the version supported by [Microsoft
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/aidanharan/activerecord-sqlserver-adapter-dev-box.git
+    host $ git clone https://github.com/rails-sqlserver/activerecord-sqlserver-adapter-dev-box.git
     host $ cd activerecord-sqlserver-adapter-dev-box
     host $ vagrant up
 

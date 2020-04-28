@@ -8,8 +8,6 @@ function install {
 }
 
 # TinyTDS
-install wget wget
-install build-essential build-essential
 install libc6-dev libc6-dev
 wget http://www.freetds.org/files/stable/freetds-1.1.32.tar.gz
 tar -xzf freetds-1.1.32.tar.gz
