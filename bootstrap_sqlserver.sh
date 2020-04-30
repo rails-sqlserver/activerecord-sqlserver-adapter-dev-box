@@ -18,7 +18,7 @@ make install
 
 # Preparation
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2017.list)"
+curl https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2017.list | sudo tee /etc/apt/sources.list.d/microsoft.mssql-server-2017.list
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.prod.list
 apt-get update
 
