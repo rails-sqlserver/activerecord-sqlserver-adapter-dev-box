@@ -11,6 +11,7 @@ Vagrant.configure('2') do |config|
   config.vm.provision :shell, path: 'bootstrap_sqlserver.sh', keep_color: true
 
   config.vm.provider 'virtualbox' do |v|
+    v.name   = 'activerecord-sql-server-dev-box'
     v.memory = ENV.fetch('ACTIVERECORD_SQLSERVER_DEV_BOX_RAM', 4098).to_i
     v.cpus   = ENV.fetch('ACTIVERECORD_SQLSERVER_DEV_BOX_CPUS', 2).to_i
   end

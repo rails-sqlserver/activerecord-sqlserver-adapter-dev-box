@@ -16,18 +16,18 @@ cd freetds-1.1.32
 make
 make install
 
-# Install SQL Server
+# Preparation
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2017.list)"
+curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.prod.list
 apt-get update
+
+# Install SQL Server
 install mssql-server mssql-server
 MSSQL_PID=Developer ACCEPT_EULA=Yes MSSQL_SA_PASSWORD=MSSQLadmin! /opt/mssql/bin/mssql-conf --noprompt setup
 systemctl status mssql-server --no-pager
 
 # Install the SQL Server command-line tools
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-apt-get update 
 ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/vagrant/.bashrc
 
